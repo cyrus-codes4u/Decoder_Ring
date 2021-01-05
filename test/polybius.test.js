@@ -21,21 +21,17 @@ describe("#polybius()", ()=> {
         const actual = polybius('Hello World!')
         expect(actual).to.equal(expected)
     })
-    //decodes messages correctly
     it("polybius() decodes messages properly", () => {
-        const expected = 'he ll'
-        const actual = polybius('3251 1313', false)
+        const expected = 'hello world'
+        const actual = polybius('3251131343 2543241341', false)
         expect(actual).to.equal(expected)
     })
-    //when decoding only accepts even number of characters
     it("polybius() when decoding only accepts even number of characters ", () => {
         const actual = polybius('3455 5', false)
         expect(actual).to.be.false
     })
-    //decodes 42 to both i and j somehow
     it("polybius() decodes 42 as both i and j somehow", () => {
-        const expected = '(i/j)'
-        const actual = polybius('42', false)
-        expect(actual).to.equal(expected)
+        const actual = polybius('1142 555442', false)
+        expect(actual).to.include('(i/j)')
     })
 })

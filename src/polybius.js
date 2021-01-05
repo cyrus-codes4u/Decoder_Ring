@@ -32,13 +32,14 @@ function polybius(input, encode = true) {
     //decoding functionality
     }else{
         // check if the input is acceptable
-        const codeLength = input.split(" ").join("").length
-        if (codeLength % 2 != 0) {return false}
+        let justNumLength = input.split(" ").join("").length
+        if (justNumLength % 2 != 0) {return false}
         //decode the input
         const code = input.split("")
         while(code.length > 0){
             if (code[0] == " ") {
                 message += ` `;
+                code.shift();
                 continue;
             }
             const digits = code.splice(0,2);
