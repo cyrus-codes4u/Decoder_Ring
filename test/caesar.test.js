@@ -8,7 +8,7 @@ describe("#caesar()", () =>{
         const actual = caesar("thinkful", 3)
         expect(actual).to.be.equal(expected)
     })
-    it("caesar() ignores spaces and punctuation", () => {
+    it("caesar() maintains spaces and punctuation", () => {
         const expected = 'wklqnixo !'
         const actual = caesar("thinkful !", 3)
         expect(actual).to.be.equal(expected)

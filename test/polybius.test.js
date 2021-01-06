@@ -11,13 +11,13 @@ describe("#polybius()", ()=> {
         const actual = polybius("thankful for you").split(' ').join('')
         expect(actual.length % 2).to.equal(0)
     })
-    it("polybius() properly encodes characters", () => {
+    it("polybius() properly encodes characters, including i and j", () => {
         const expected = '1121314151122232424252'
         const actual = polybius('abcdefghijk')
         expect(actual).to.equal(expected)
     })
     it("polybius() maintains spaces, ignores punctuation and capitals", () => {
-        const expected ='3251131343 2543241341'
+        const expected =polybius('hello world')
         const actual = polybius('Hello World!')
         expect(actual).to.equal(expected)
     })
@@ -30,7 +30,7 @@ describe("#polybius()", ()=> {
         const actual = polybius('3455 5', false)
         expect(actual).to.be.false
     })
-    it("polybius() decodes 42 as both i and j somehow", () => {
+    it("polybius() decodes 42 as (i/j)", () => {
         const actual = polybius('1142 555442', false)
         expect(actual).to.include('(i/j)')
     })
